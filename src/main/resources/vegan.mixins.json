@@ -9,10 +9,12 @@
     "system.DisableGeckoLibExamples",
     "attack.BowItemMixin",
     "attack.CrossbowItemMixin",
-    "attack.AnvilKillMessageMixin",
-    "system.VeganMode"
+    "attack.AnvilKillMessageMixin"
   ],
   "client": [
+
+  ],
+  "server": [
 
   ],
   "injectors": {

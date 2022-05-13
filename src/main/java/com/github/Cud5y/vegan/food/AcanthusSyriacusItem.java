@@ -1,6 +1,5 @@
-package com.github.Cud5y.vegan.Food;
+package com.github.Cud5y.vegan.food;
 
-import com.github.Cud5y.vegan.Vegan;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

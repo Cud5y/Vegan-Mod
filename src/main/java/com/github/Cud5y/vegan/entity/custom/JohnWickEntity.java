@@ -6,7 +6,10 @@ import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.boss.BossBar;
+import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,8 +18,10 @@ import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
@@ -32,7 +37,6 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
-
 public class JohnWickEntity extends HostileEntity implements IAnimatable, RangedAttackMob {
 
     private final BowAttackGoal<JohnWickEntity> bowAttackGoal = new BowAttackGoal(this, 1.0D, 20, 15.0F);
@@ -48,16 +52,20 @@ public class JohnWickEntity extends HostileEntity implements IAnimatable, Ranged
         }
     };
     private AnimationFactory factory = new AnimationFactory(this);
+    private final ServerBossBar bossBar;
 
-    public JohnWickEntity(EntityType<? extends HostileEntity> entityType, World world) {super(entityType, world);}
+    public JohnWickEntity(EntityType<? extends HostileEntity> entityType, World world) {
+        super(entityType, world);
+        this.bossBar = (ServerBossBar)(new ServerBossBar(this.getDisplayName(), BossBar.Color.PURPLE, BossBar.Style.PROGRESS)).setDarkenSky(true);
+    }
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return HostileEntity.createHostileAttributes()
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23000000417232513D)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 66.0D)
-                .add(EntityAttributes.GENERIC_ARMOR, 2.0D)
-                .add(EntityAttributes.GENERIC_MAX_HEALTH,200)
+                .add(EntityAttributes.GENERIC_ARMOR, 10.0D)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,1000D)
                 .add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS);
     }
 
@@ -68,6 +76,36 @@ public class JohnWickEntity extends HostileEntity implements IAnimatable, Ranged
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
         this.targetSelector.add(2, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<IronGolemEntity>(this, IronGolemEntity.class, true));
+    }
+
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        if (this.hasCustomName()) {
+            this.bossBar.setName(this.getDisplayName());
+        }
+    }
+
+    public void setCustomName(@Nullable Text name) {
+        super.setCustomName(name);
+        this.bossBar.setName(this.getDisplayName());
+    }
+
+    protected void mobTick(){
+        super.mobTick();
+        this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
+    }
+
+    public void onSummoned() {
+        this.bossBar.setPercent(0.0F);
+    }
+    public void onStartedTrackingBy(ServerPlayerEntity player) {
+        super.onStartedTrackingBy(player);
+        this.bossBar.addPlayer(player);
+    }
+
+    public void onStoppedTrackingBy(ServerPlayerEntity player) {
+        super.onStoppedTrackingBy(player);
+        this.bossBar.removePlayer(player);
     }
 
     protected void initEquipment(LocalDifficulty difficulty) {

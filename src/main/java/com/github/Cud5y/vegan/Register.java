@@ -1,6 +1,6 @@
 package com.github.Cud5y.vegan;
 
-import com.github.Cud5y.vegan.Food.AcanthusSyriacusItem;
+import com.github.Cud5y.vegan.food.AcanthusSyriacusItem;
 import com.github.Cud5y.vegan.entity.ModEntities;
 import com.github.Cud5y.vegan.entity.custom.JohnWickEntity;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
@@ -41,7 +41,7 @@ public class Register {
     }
 
     private static void registerGameRules(){
-        VEGAN_MODE = GameRuleRegistry.register("veganMode",GameRules.Category.MISC,GameRuleFactory.createBooleanRule(true));
+        VEGAN_MODE = GameRuleRegistry.register("veganMode",GameRules.Category.MISC,GameRuleFactory.createBooleanRule(false));
     }
 
 }
