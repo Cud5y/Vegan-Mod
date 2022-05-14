@@ -8,7 +8,6 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.World;
 
 public class ModEntities {
     private static ServerBossBar bossBar;

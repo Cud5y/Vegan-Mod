@@ -1,7 +1,6 @@
 package com.github.Cud5y.vegan.mixin.food;
 
 import com.github.Cud5y.vegan.Register;
-import com.github.Cud5y.vegan.Vegan;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

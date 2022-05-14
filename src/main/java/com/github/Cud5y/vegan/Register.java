@@ -1,8 +1,8 @@
 package com.github.Cud5y.vegan;
 
-import com.github.Cud5y.vegan.food.AcanthusSyriacusItem;
 import com.github.Cud5y.vegan.entity.ModEntities;
 import com.github.Cud5y.vegan.entity.custom.JohnWickEntity;
+import com.github.Cud5y.vegan.food.AcanthusSyriacusItem;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;

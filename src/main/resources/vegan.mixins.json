@@ -8,8 +8,7 @@
     "food.BannedFoods",
     "system.DisableGeckoLibExamples",
     "attack.BowItemMixin",
-    "attack.CrossbowItemMixin",
-    "attack.AnvilKillMessageMixin"
+    "attack.CrossbowItemMixin"
   ],
   "client": [
 

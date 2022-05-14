@@ -2,9 +2,6 @@ package com.github.Cud5y.vegan;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Maps;
-import java.util.Map;
-import java.util.Objects;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -33,6 +30,9 @@ import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Map;
+import java.util.Objects;
 
 //Custom Version of the SpawnEggItem class to disable the requirement for primary and secondary colours
 public class CustomSpawnEggItem extends Item {

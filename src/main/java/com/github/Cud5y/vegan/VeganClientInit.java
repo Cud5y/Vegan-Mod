@@ -1,7 +1,7 @@
 package com.github.Cud5y.vegan;
 
-import com.github.Cud5y.vegan.entity.client.JohnWickRenderer;
 import com.github.Cud5y.vegan.entity.ModEntities;
+import com.github.Cud5y.vegan.entity.client.JohnWickRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 
