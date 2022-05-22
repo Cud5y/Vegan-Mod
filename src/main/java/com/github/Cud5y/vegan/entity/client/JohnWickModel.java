@@ -1,6 +1,6 @@
 package com.github.Cud5y.vegan.entity.client;
 
-import com.github.Cud5y.vegan.entity.custom.JohnWickEntity;
+import com.github.Cud5y.vegan.entity.mob.JohnWickEntity;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

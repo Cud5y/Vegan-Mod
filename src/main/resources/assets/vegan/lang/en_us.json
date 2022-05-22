@@ -3,5 +3,8 @@
   "item.vegan.vegan_burger": "Vegan Burger",
   "item.vegan.acanthus_syriacus": "Acanthus Syriacus",
   "entity.vegan.john_wick": "John Wick",
-  "gamerule.veganMode": "Vegan mode"
+  "gamerule.veganMode": "Vegan mode",
+  "subtitles.vegan.death_sound": "John Wick: Rusty I guess",
+  "subtitles.vegan.hurt_sound": "John Wick: GIVE ME YOUR SON",
+  "subtitles.vegan.idle_sound": "John Wick: Yes John Wick that's right"
 }

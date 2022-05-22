@@ -1,0 +1,21 @@
+{
+  "death_sound": {
+    "subtitle": "subtitles.vegan.death_sound",
+    "sounds": [
+      "vegan:rusty-i-guess"
+    ]
+  },
+  "hurt_sound": {
+    "subtitle": "subtitles.vegan.hurt_sound",
+    "sounds": [
+      "vegan:give-me-your-son"
+    ]
+  },
+  "idle_sound": {
+    "subtitle": "subtitles.vegan.idle_sound",
+    "sounds": [
+      "vegan:yes-john-wick"
+    ]
+  }
+}
+

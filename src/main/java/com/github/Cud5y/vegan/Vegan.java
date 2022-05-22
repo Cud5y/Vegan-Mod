@@ -1,6 +1,7 @@
 package com.github.Cud5y.vegan;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

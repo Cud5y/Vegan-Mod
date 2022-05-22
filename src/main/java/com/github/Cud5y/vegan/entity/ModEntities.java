@@ -1,6 +1,6 @@
 package com.github.Cud5y.vegan.entity;
 
-import com.github.Cud5y.vegan.entity.custom.JohnWickEntity;
+import com.github.Cud5y.vegan.entity.mob.JohnWickEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;

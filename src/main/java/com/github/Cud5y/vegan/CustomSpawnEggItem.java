@@ -115,18 +115,6 @@ public class CustomSpawnEggItem extends Item {
         }
     }
 
-    public boolean isOfSameEntityType(@Nullable NbtCompound nbt, EntityType<?> type) {
-        return Objects.equals(this.getEntityType(nbt), type);
-    }
-
-    public static CustomSpawnEggItem forEntity(@Nullable EntityType<?> type) {
-        return (CustomSpawnEggItem)SPAWN_EGGS.get(type);
-    }
-
-    public static Iterable<net.minecraft.item.SpawnEggItem> getAll() {
-        return Iterables.unmodifiableIterable((Iterable)SPAWN_EGGS.values());
-    }
-
     public EntityType<?> getEntityType(@Nullable NbtCompound nbt) {
         if (nbt != null && nbt.contains("EntityTag", 10)) {
             NbtCompound nbtCompound = nbt.getCompound("EntityTag");
