@@ -1,5 +1,6 @@
-package com.github.Cud5y.vegan.entity.custom;
+package com.github.Cud5y.vegan.entity.mob;
 
+import com.github.Cud5y.vegan.Register;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RangedAttackMob;
@@ -55,21 +56,21 @@ public class JohnWickEntity extends HostileEntity implements IAnimatable, Ranged
 
     public JohnWickEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
+        this.experiencePoints = 100;
         this.bossBar = (ServerBossBar)(new ServerBossBar(this.getDisplayName(), BossBar.Color.PURPLE, BossBar.Style.PROGRESS)).setDarkenSky(true);
     }
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0D)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 100.0D)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 66.0D)
                 .add(EntityAttributes.GENERIC_ARMOR, 10.0D)
-                .add(EntityAttributes.GENERIC_MAX_HEALTH,1000D)
-                .add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,1000D);
     }
 
     protected void initGoals() {
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0D));
+        this.goalSelector.add(5, new WanderAroundGoal(this, 1.0D));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(6, new LookAroundGoal(this));
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
@@ -118,17 +119,6 @@ public class JohnWickEntity extends HostileEntity implements IAnimatable, Ranged
         this.initEquipment(difficulty);
         this.updateEnchantments(difficulty);
         this.updateAttackType();
-        this.setCanPickUpLoot(this.random.nextFloat() < 0.55F * difficulty.getClampedLocalDifficulty());
-        if (this.getEquippedStack(EquipmentSlot.HEAD).isEmpty()) {
-            LocalDate localDate = LocalDate.now();
-            int i = localDate.get(ChronoField.DAY_OF_MONTH);
-            int j = localDate.get(ChronoField.MONTH_OF_YEAR);
-            if (j == 10 && i == 31 && this.random.nextFloat() < 0.25F) {
-                this.equipStack(EquipmentSlot.HEAD, new ItemStack(this.random.nextFloat() < 0.1F ? Blocks.JACK_O_LANTERN : Blocks.CARVED_PUMPKIN));
-                this.armorDropChances[EquipmentSlot.HEAD.getEntitySlotId()] = 0.0F;
-            }
-        }
-
         return entityData;
     }
 
@@ -138,9 +128,9 @@ public class JohnWickEntity extends HostileEntity implements IAnimatable, Ranged
             this.goalSelector.remove(this.bowAttackGoal);
             ItemStack itemStack = this.getStackInHand(ProjectileUtil.getHandPossiblyHolding(this, Items.BOW));
             if (itemStack.isOf(Items.BOW)) {
-                int i = 20;
+                int i = 10;
                 if (this.world.getDifficulty() != Difficulty.HARD) {
-                    i = 40;
+                    i = 15;
                 }
 
                 this.bowAttackGoal.setAttackInterval(i);
@@ -159,13 +149,13 @@ public class JohnWickEntity extends HostileEntity implements IAnimatable, Ranged
         double e = target.getBodyY(0.3333333333333333D) - persistentProjectileEntity.getY();
         double f = target.getZ() - this.getZ();
         double g = Math.sqrt(d * d + f * f);
-        persistentProjectileEntity.setVelocity(d, e + g * 0.20000000298023224D, f, 1.6F, (float)(14 - this.world.getDifficulty().getId() * 4));
+        persistentProjectileEntity.setVelocity(d, e + g * 0.20000000298023224D, f, 2.3F, (float)(14 - this.world.getDifficulty().getId() * 4));
         this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
         this.world.spawnEntity(persistentProjectileEntity);
     }
 
     protected PersistentProjectileEntity createArrowProjectile(ItemStack arrow, float damageModifier) {
-        return ProjectileUtil.createArrowProjectile(this, arrow, damageModifier);
+        return ProjectileUtil.createArrowProjectile(this, arrow, 10f);
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
@@ -189,17 +179,17 @@ public class JohnWickEntity extends HostileEntity implements IAnimatable, Ranged
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
+        return Register.JOHNWICK_IDLE;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_ZOMBIE_HURT;
+        return Register.JOHNWICK_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_ZOMBIE_DEATH;
+        return Register.JOHNWICK_DEATH;
     }
 
 }
