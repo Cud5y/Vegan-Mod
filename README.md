@@ -1,4 +1,4 @@
-# the VEGAN mod by Cudsy
+# the _VEGAN_ mod by Cudsy
 
 ## Install Instructions
 1) Download the latest release from releases page
