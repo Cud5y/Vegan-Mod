@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CrossbowItem.class)
 public class CrossbowItemMixin {
+    //Disables attacking with a crossbow when veganMode is true
     @Inject(at = @At("INVOKE"),method = "onStoppedUsing",cancellable = true)
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks, CallbackInfo info){
         GameRules gameRules = world.getGameRules();

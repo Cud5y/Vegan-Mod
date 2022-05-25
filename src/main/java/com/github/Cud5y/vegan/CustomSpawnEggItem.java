@@ -1,6 +1,5 @@
 package com.github.Cud5y.vegan;
 
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

@@ -37,7 +37,7 @@
                 },
                 {
                   "condition": "minecraft:random_chance",
-                  "chance": 0.0001
+                  "chance": 0.01
                 }
               ],
               "name": "vegan:acanthus_syriacus"
@@ -118,7 +118,7 @@
                 },
                 {
                   "condition": "minecraft:random_chance",
-                  "chance": 0.0001
+                  "chance": 0.01
                 }
               ],
               "name": "vegan:acanthus_syriacus"

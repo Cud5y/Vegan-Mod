@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BowItem.class)
 public class BowItemMixin {
-
+    //Disables attacking with a bow when veganMode is true
     @Inject(at = @At("INVOKE"),method = "onStoppedUsing",cancellable = true)
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user,int remainingUseTicks, CallbackInfo info) {
         GameRules gameRules = world.getGameRules();

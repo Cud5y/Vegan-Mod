@@ -1,0 +1,38 @@
+{
+  "parent": "vegan:husbandry/acanthus_syriacus",
+  "criteria": {
+    "eat_acanthus_syriacus": {
+      "conditions": {
+        "item": {
+          "items": [
+            "vegan:acanthus_syriacus"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.vegan.husbandry.eat_acanthus_syriacus.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "vegan:acanthus_syriacus"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.vegan.husbandry.eat_acanthus_syriacus.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_acanthus_syriacus"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}

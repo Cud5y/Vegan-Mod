@@ -6,5 +6,11 @@
   "gamerule.veganMode": "Vegan mode",
   "subtitles.vegan.death_sound": "John Wick: Rusty I guess",
   "subtitles.vegan.hurt_sound": "John Wick: GIVE ME YOUR SON",
-  "subtitles.vegan.idle_sound": "John Wick: Yes John Wick that's right"
+  "subtitles.vegan.idle_sound": "John Wick: Yes John Wick that's right",
+  "advancements.vegan.husbandry.obtain_acanthus_syriacus.title": "The Rarest Item",
+  "advancements.vegan.husbandry.eat_acanthus_syriacus.title": "Eat the Rarest Item",
+  "advancements.adventure.kill_john_wick.title": "Kill John Wick",
+  "advancements.vegan.husbandry.obtain_acanthus_syriacus.description": "Maybe grass drops more than seeds...",
+  "advancements.vegan.husbandry.eat_acanthus_syriacus.description": "Eat the rarest item in the game",
+  "advancements.adventure.kill_john_wick.description": "KILL HIM"
 }

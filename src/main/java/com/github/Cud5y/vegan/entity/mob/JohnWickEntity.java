@@ -1,7 +1,6 @@
 package com.github.Cud5y.vegan.entity.mob;
 
 import com.github.Cud5y.vegan.Register;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
@@ -35,8 +34,6 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoField;
 public class JohnWickEntity extends HostileEntity implements IAnimatable, RangedAttackMob {
 
     private final BowAttackGoal<JohnWickEntity> bowAttackGoal = new BowAttackGoal(this, 1.0D, 20, 15.0F);
@@ -54,6 +51,7 @@ public class JohnWickEntity extends HostileEntity implements IAnimatable, Ranged
     private AnimationFactory factory = new AnimationFactory(this);
     private final ServerBossBar bossBar;
 
+    //Creates a John wick entity with a Bossbar and 100 experience points
     public JohnWickEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.experiencePoints = 100;

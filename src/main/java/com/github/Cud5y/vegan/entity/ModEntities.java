@@ -11,6 +11,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModEntities {
     private static ServerBossBar bossBar;
+    //Creates entity John Wick as a monster with a bossbar
     public static final EntityType<JohnWickEntity> JOHN_WICK = Registry.register(Registry.ENTITY_TYPE,new Identifier("vegan","john_wick"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, JohnWickEntity::new).dimensions(EntityDimensions.fixed(1.0f,2.0f)).build());
 

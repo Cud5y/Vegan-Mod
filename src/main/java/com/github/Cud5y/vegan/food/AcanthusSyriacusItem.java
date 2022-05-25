@@ -12,8 +12,8 @@ public class AcanthusSyriacusItem extends Item {
     public AcanthusSyriacusItem(Settings settings) {
         super(settings);
     }
-
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+
         super.finishUsing(stack, world, user);
 
         if (stack.isEmpty()) {

@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "vegan:john_wick": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "vegan:john_wick"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventure.kill_john_wick.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "vegan:john"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventure.kill_john_wick.title"
+    }
+  },
+  "requirements": [
+    [
+      "vegan:john_wick"
+    ]
+  ]
+}
