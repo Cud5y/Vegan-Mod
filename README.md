@@ -1,4 +1,4 @@
-# the VEGAN mod by Cudsy
+# the _VEGAN_ mod by Cudsy
 
 ## Install Instructions
 1) Download the latest release from releases page
@@ -9,5 +9,4 @@
 6) Enjoy :)
 
 ## License
-
 This mod is under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
