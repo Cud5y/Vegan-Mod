@@ -1,5 +1,7 @@
 # the _VEGAN_ mod by Cudsy
 
+This is a parody minecraft mod nothing in this mod is to be taken seriously
+
 ## Install Instructions
 1) Download the latest release from releases page
 2) Download GeckoLib for fabric on your minecraft version from here https://www.curseforge.com/minecraft/mc-mods/geckolib
